@@ -72,13 +72,18 @@ class GameLogic():
 #------------------------- Basma
 class Banker():
     def __init__(self):
-        pass
-    def shelf(slef,):
-        pass
-    def bank(self):
-        pass
+        self.balance = 0
+        self.shelved = 0
+    def shelf(slef, int):
+        self.shevled += int
+        return self.shelved
+    def bank(self, balance):
+        self.balanc += self.shelved
+        clear_shlef()
+        return self.balance
     def clear_shelf(self):
-        pass
+        self.shelved = 0
+        return self.shelved
 
 if __name__ == "__main__":
     n=GameLogic()
