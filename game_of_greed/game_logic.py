@@ -51,8 +51,43 @@ def clear_shelf(self):
     return self.shelved
 
 """
+
 def up_to_six_threes():
-    pass
+    coun=Counter(dice).most_common # aliase for Counter of dice
+    if dice==1:
+        return 100
+    elif dice ==5:
+        return 50
+
+    elif coun(1)[0][0]==1:
+        if coun(1)[0][1]==3:
+            return 1000
+        elif coun(1)[0][1]==4:
+            return 2000
+        elif coun(1)[0][1]==5:
+            return 3000
+        elif coun(1)[0][1]==6:
+            return 4000
+    elif coun(1)[0][0]==2:
+        if coun(1)[0][1]==3:
+            return 200
+        elif coun(1)[0][1]==4:
+            return 400
+        elif coun(1)[0][1]==5:
+            return 600
+        elif coun(1)[0][1]==6:
+            return 800
+    elif coun(1)[0][0]==3:
+        if coun(1)[0][1]==3:
+            return 300
+        elif coun(1)[0][1]==4:
+            return 600
+        elif coun(1)[0][1]==5:
+            return 900
+        elif coun(1)[0][1]==6:
+            return 1200
+
+
 def from_three_fours():
     pass
 class GameLogic():
