@@ -52,107 +52,119 @@ def clear_shelf(self):
 
 """
 
-def up_to_six_threes():
-    coun=Counter(dice).most_common # aliase for Counter of dice
-    if dice==1:
+
+def up_to_six_threes(dice):
+    coun = Counter(dice).most_common  # aliase for Counter of dice
+    if dice == 1:
         return 100
-    elif dice ==5:
+    elif dice == 5:
         return 50
 
-    elif coun(1)[0][0]==1:
-        if coun(1)[0][1]==3:
+    elif coun(1)[0][0] == 1:
+        if coun(1)[0][1] == 3:
             return 1000
-        elif coun(1)[0][1]==4:
+        elif coun(1)[0][1] == 4:
             return 2000
-        elif coun(1)[0][1]==5:
+        elif coun(1)[0][1] == 5:
             return 3000
-        elif coun(1)[0][1]==6:
+        elif coun(1)[0][1] == 6:
             return 4000
-    elif coun(1)[0][0]==2:
-        if coun(1)[0][1]==3:
+    elif coun(1)[0][0] == 2:
+        if coun(1)[0][1] == 3:
             return 200
-        elif coun(1)[0][1]==4:
+        elif coun(1)[0][1] == 4:
             return 400
-        elif coun(1)[0][1]==5:
+        elif coun(1)[0][1] == 5:
             return 600
-        elif coun(1)[0][1]==6:
+        elif coun(1)[0][1] == 6:
             return 800
-    elif coun(1)[0][0]==3:
-        if coun(1)[0][1]==3:
+    elif coun(1)[0][0] == 3:
+        if coun(1)[0][1] == 3:
             return 300
-        elif coun(1)[0][1]==4:
+        elif coun(1)[0][1] == 4:
             return 600
-        elif coun(1)[0][1]==5:
+        elif coun(1)[0][1] == 5:
             return 900
-        elif coun(1)[0][1]==6:
+        elif coun(1)[0][1] == 6:
             return 1200
+    else:
+        return 0
 
 
-
-def from_three_fours():
-    coun=Counter(dice).most_common
-    if coun(1)[0][0]==4:
-        if coun(1)[0][1]==3:
+def from_three_fours(dice):
+    coun = Counter(dice).most_common
+    if coun(1)[0][0] == 4:
+        if coun(1)[0][1] == 3:
             return 400
-        elif coun(1)[0][1]==4:
+        elif coun(1)[0][1] == 4:
             return 800
-        elif coun(1)[0][1]==5:
+        elif coun(1)[0][1] == 5:
             return 1400
-        elif coun(1)[0][1]==6:
+        elif coun(1)[0][1] == 6:
             return 1600
-    elif coun(1)[0][0]==5:
-        if coun(1)[0][1]==3:
+    elif coun(1)[0][0] == 5:
+        if coun(1)[0][1] == 3:
             return 500
-        elif coun(1)[0][1]==4:
+        elif coun(1)[0][1] == 4:
             return 1000
-        elif coun(1)[0][1]==5:
+        elif coun(1)[0][1] == 5:
             return 1500
-        elif coun(1)[0][1]==6:
+        elif coun(1)[0][1] == 6:
             return 2000
-    elif coun(1)[0][0]==6:
-        if coun(1)[0][1]==3:
+    elif coun(1)[0][0] == 6:
+        if coun(1)[0][1] == 3:
             return 600
-        elif coun(1)[0][1]==4:
+        elif coun(1)[0][1] == 4:
             return 1200
-        elif coun(1)[0][1]==5:
+        elif coun(1)[0][1] == 5:
             return 1800
-        elif coun(1)[0][1]==6:
+        elif coun(1)[0][1] == 6:
             return 2400
-    elif coun(1)[0][0]==1:
+    elif coun(1)[0][0] == 1:
         return 1500
-    elif coun(1)[0][1]==2:
+    elif coun(1)[0][1] == 2:
         return 750
-
-
-
-
+    else:
+        return 0
 
 
 class GameLogic():
     def __init__(self):
         pass
-    def calculate_score(self,dice=(1,1,1,1,1,1)):
 
-        #----------------------------- 1 - 3  Mohmmad
-        #----------------------------- 4 -6 saed
+    def calculate_score(self, dice=(2, 2, 3, 3, 4, 4)):
+        x = up_to_six_threes(dice)
+        y = from_three_fours(dice)
+        if x:
+            return x
+        elif y:
+            return y
+        else:
+            return 0
 
-        pass
-    def roll_dice(self,n):
-      list = []
-      for i in range(n):
-        list.append(random.randint(1,n))
-      return(tuple(list))
+    def roll_dice(self, n):
+        list = []
+        for i in range(n):
+            list.append(random.randint(1, n))
+        return(tuple(list))
 #------------------------- Basma
+
+
 class Banker():
     def __init__(self):
         pass
+
     def shelf(slef,):
         pass
+
     def bank(self):
         pass
+
     def clear_shelf(self):
         pass
 
+
 if __name__ == "__main__":
-    n=GameLogic()
+    n = GameLogic()
     print(n.roll_dice(6))
+    print(n.calculate_score())
