@@ -51,15 +51,25 @@ def clear_shelf(self):
     return self.shelved
 
 """
-
+def up_to_six_threes():
+    pass
+def from_three_fours():
+    pass
 class GameLogic():
     def __init__(self):
         pass
     def calculate_score(self,dice=(1,1,1,1,1,1)):
-        pass
-    def roll_dice(self,n)
-        pass
 
+        #----------------------------- 1 - 3  Mohmmad
+        #----------------------------- 4 -6 saed
+
+        pass
+    def roll_dice(self,n):
+      list = []
+      for i in range(n):
+        list.append(random.randint(1,n))
+      return(tuple(list))
+#------------------------- Basma
 class Banker():
     def __init__(self):
         pass
@@ -69,3 +79,7 @@ class Banker():
         pass
     def clear_shelf(self):
         pass
+
+if __name__ == "__main__":
+    n=GameLogic()
+    print(n.roll_dice(6))
