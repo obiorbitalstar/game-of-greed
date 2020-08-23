@@ -88,8 +88,46 @@ def up_to_six_threes():
             return 1200
 
 
+
 def from_three_fours():
-    pass
+    coun=Counter(dice).most_common
+    if coun(1)[0][0]==4:
+        if coun(1)[0][1]==3:
+            return 400
+        elif coun(1)[0][1]==4:
+            return 800
+        elif coun(1)[0][1]==5:
+            return 1400
+        elif coun(1)[0][1]==6:
+            return 1600
+    elif coun(1)[0][0]==5:
+        if coun(1)[0][1]==3:
+            return 500
+        elif coun(1)[0][1]==4:
+            return 1000
+        elif coun(1)[0][1]==5:
+            return 1500
+        elif coun(1)[0][1]==6:
+            return 2000
+    elif coun(1)[0][0]==6:
+        if coun(1)[0][1]==3:
+            return 600
+        elif coun(1)[0][1]==4:
+            return 1200
+        elif coun(1)[0][1]==5:
+            return 1800
+        elif coun(1)[0][1]==6:
+            return 2400
+    elif coun(1)[0][0]==1:
+        return 1500
+    elif coun(1)[0][1]==2:
+        return 750
+
+
+
+
+
+
 class GameLogic():
     def __init__(self):
         pass
