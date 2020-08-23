@@ -54,91 +54,91 @@ def clear_shelf(self):
 
 
 def up_to_six_threes(dice):
+    score = 0
     coun = Counter(dice).most_common  # aliase for Counter of dice
     if dice == 1:
-        return 100
-    elif dice == 5:
-        return 50
+        score+= 100
+    if dice ==5:
+        score+= 50
 
     elif coun(1)[0][0] == 1:
-        if coun(1)[0][1] == 3:
-            return 1000
+        if coun(1)[0][1] == 1:
+            score+= 100
+        elif coun(1)[0][1] == 2:
+            score+= 200
+        elif coun(1)[0][1] == 3:
+            score+= 1000
         elif coun(1)[0][1] == 4:
-            return 2000
+            score+= 2000
         elif coun(1)[0][1] == 5:
-            return 3000
+            score+= 3000
         elif coun(1)[0][1] == 6:
-            return 4000
+            score+= 4000
     elif coun(1)[0][0] == 2:
         if coun(1)[0][1] == 3:
-            return 200
+            score+= 200
         elif coun(1)[0][1] == 4:
-            return 400
+            score+= 400
         elif coun(1)[0][1] == 5:
-            return 600
+            score+= 600
         elif coun(1)[0][1] == 6:
-            return 800
+            score+= 800
     elif coun(1)[0][0] == 3:
         if coun(1)[0][1] == 3:
-            return 300
+            score+= 300
         elif coun(1)[0][1] == 4:
-            return 600
+            score+= 600
         elif coun(1)[0][1] == 5:
-            return 900
+            score+= 900
         elif coun(1)[0][1] == 6:
-            return 1200
-    else:
-        return 0
-
-
-def from_three_fours(dice):
-    coun = Counter(dice).most_common
-    if coun(1)[0][0] == 4:
+            score+= 1200
+    elif coun(1)[0][0] == 4:
         if coun(1)[0][1] == 3:
-            return 400
+            score+= 400
         elif coun(1)[0][1] == 4:
-            return 800
+            score+= 800
         elif coun(1)[0][1] == 5:
-            return 1400
+            score+= 1400
         elif coun(1)[0][1] == 6:
-            return 1600
+            score+= 1600
     elif coun(1)[0][0] == 5:
-        if coun(1)[0][1] == 3:
-            return 500
+        if coun(1)[0][1] == 1:
+            score+= 50
+        elif coun(1)[0][1] == 2:
+            score+= 100
+        elif coun(1)[0][1] == 3:
+            score+= 500
         elif coun(1)[0][1] == 4:
-            return 1000
+            score+= 1000
         elif coun(1)[0][1] == 5:
-            return 1500
+            score+= 1500
         elif coun(1)[0][1] == 6:
-            return 2000
+            score+= 2000
     elif coun(1)[0][0] == 6:
         if coun(1)[0][1] == 3:
-            return 600
+            score+= 600
         elif coun(1)[0][1] == 4:
-            return 1200
+            score+= 1200
         elif coun(1)[0][1] == 5:
-            return 1800
+            score+= 1800
         elif coun(1)[0][1] == 6:
-            return 2400
+            score+= 2400
     elif coun(1)[0][0] == 1:
-        return 1500
+        score+= 1500
     elif coun(1)[0][1] == 2:
-        return 750
+        score+= 750
     else:
-        return 0
-
+        score+= 0
+    return score
 
 class GameLogic():
     def __init__(self):
         pass
 
-    def calculate_score(self, dice=(2, 2, 3, 3, 4, 4)):
+    def calculate_score(self, dice):
         x = up_to_six_threes(dice)
-        y = from_three_fours(dice)
         if x:
             return x
-        elif y:
-            return y
         else:
             return 0
 
@@ -152,19 +152,24 @@ class GameLogic():
 
 class Banker():
     def __init__(self):
-        pass
-
-    def shelf(slef,):
-        pass
-
+        self.balance = 0
+        self.shelved = 0
+    def shelf(self, int):
+        self.shelved += int
+        return self.shelved
     def bank(self):
-        pass
-
-    def clear_shelf(self):
-        pass
+        self.balance += self.shelved
+        self.clear_shlef()
+        return self.balance
+    def clear_shlef(self):
+        self.shelved = 0
+        return self.shelved
 
 
 if __name__ == "__main__":
     n = GameLogic()
     print(n.roll_dice(6))
-    print(n.calculate_score())
+    # print(n.calculate_score())
+    # print(GameLogic.calculate_score((5,)))
+    y = GameLogic()
+    print(y.calculate_score((5,)))
