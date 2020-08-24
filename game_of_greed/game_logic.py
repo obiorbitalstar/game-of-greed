@@ -2,6 +2,10 @@ from collections import Counter
 import random
 
 class GameLogic():
+    """
+    This class is to define the logic of the game of greed for rolling random dice and counting score
+
+    """
     def __init__(self):
         pass
 
@@ -62,6 +66,9 @@ class GameLogic():
 
 
 class Banker():
+    """
+    The banker class is to keep track of points earned by the player wither he adds them to his balance or shelf them and so on
+    """
     def __init__(self):
         self.balance = 0
         self.shelved = 0
