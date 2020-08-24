@@ -54,7 +54,7 @@ class GameLogic():
 
         return score
 
-    def roll_dice(self, n):
+    def roll_dice(self,n):
         list = []
         for i in range(n):
             list.append(random.randint(1, n))
