@@ -1,5 +1,5 @@
-from game_of_greed.game_logic import GameLogic,Banker
-# from game_logic import GameLogic,Banker
+# from game_of_greed.game_logic import GameLogic,Banker
+from game_logic import GameLogic,Banker
 import sys
 #
 # from tests.flow.flo import roller
@@ -65,6 +65,11 @@ class Game:
 
             # Check what user wants to do
             more =input("Enter dice to keep (no spaces), or (q)uit: ")
+            if more not in roll and more !='1' and more != '5':
+                    print("Cheater!!! Or possibly made a typo...")
+                    # roll = self.roller(num_dice)
+                    print(','.join([str(i) for i in roll]))
+                    more =input("Enter dice to keep (no spaces), or (q)uit: ")
 
             # Check if player wants to quit
             if more == 'q':
