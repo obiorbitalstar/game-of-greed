@@ -7,3 +7,6 @@ def test_wanna_play_then_quit():
 
 def test_bank_first_for_two_rond():
     Flo.test("tests/flow/bank_first_for_two_rounds.txt")
+
+def test_zilch():
+    Flo.test("tests/flow/zilch.txt")

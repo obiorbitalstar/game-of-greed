@@ -1,7 +1,7 @@
-from game_of_greed.game_logic import GameLogic,Banker
-# from game_logic import GameLogic,Banker
+# from game_of_greed.game_logic import GameLogic,Banker
+from game_logic import GameLogic,Banker
 import sys
-
+#
 # from tests.flow.flo import roller
 class Game:
     def __init__(self,roller=None):
@@ -28,7 +28,7 @@ class Game:
 
 
     def quit_game(self):
-        print(f"Total score is {self.total} points")
+        # print(f"Total score is {self.total} points")
         print(f"Thanks for playing. You earned {self.total} points")
         sys.exit()
 
@@ -56,6 +56,14 @@ class Game:
             splitted_dice=[int(i) for i in more]
             unbanked_score = GameLogic.calculate_score(self,(splitted_dice))
             rounds_total += unbanked_score
+            if unbanked_score == 0:
+                print("Zilch!!! Round over")
+                self.total += rounds_total
+                print(f"You banked {rounds_total} points in round {self.round}")
+                self.round += 1
+                num_dice = 6
+                print(f"Total score is {self.total} points")
+                break
 
             # Subtract from num_dice
             num_dice -= len(splitted_dice)
