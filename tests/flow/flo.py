@@ -98,5 +98,6 @@ class Flo:
 
 
 if __name__ == "__main__":
+    pass
     # Flo.test("tests/flow/bank_one_roll_then_quit.txt")
-    Flo.test("tests/flow/bank_first_for_two_rounds.txt")
+    # Flo.test("tests/flow/bank_first_for_two_rounds.txt")
