@@ -9,5 +9,4 @@ Cheater!!! Or possibly made a typo...
 Enter dice to keep (no spaces), or (q)uit: 55
 You have 100 unbanked points and 4 dice remaining
 (r)oll again, (b)ank your points or (q)uit q
-Total score is 100 points
 Thanks for playing. You earned 0 points

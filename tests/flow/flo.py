@@ -82,6 +82,10 @@ class Flo:
 
             # Make sure number of lines in the txt files
             # matches number of line coming from the game
+            # self.prints(len(print_lines))
+            self.old_print(print_lines)
+            self.old_print(file_lines)
+
             assert len(print_lines) == len(file_lines)
             pairs = zip(print_lines, file_lines)
 
