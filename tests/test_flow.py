@@ -10,3 +10,5 @@ def test_bank_first_for_two_round():
 
 def test_zilch():
     Flo.test("tests/flow/zilch.txt")
+def test_cheat_and_fix():
+    Flo.test("tests/flow/cheat_and_fix.txt")
