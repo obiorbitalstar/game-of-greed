@@ -33,6 +33,19 @@ class Game:
         # print(f"Total score is {self.total} points")
         print(f"Thanks for playing. You earned {self.total} points")
         sys.exit()
+    def zilch(self,rounds_total):
+        print("Zilch!!! Round over")
+        rounds_total=0
+        print(f"You banked {rounds_total} points in round {self.round}")
+        print(f"Total score is {self.total} points")
+        self.round += 1
+        num_dice = 6
+
+    def cheater_or_typo(self,roll):
+        print("Cheater!!! Or possibly made a typo...")
+        print(','.join([str(i) for i in roll]))
+        more =input("Enter dice to keep (no spaces), or (q)uit: ")
+
 
 
     def play_round(self, rounds_total):
@@ -43,7 +56,7 @@ class Game:
             print(f"Rolling {num_dice} dice...")
 
             roll = self.roller(num_dice)
-            print(roll)
+            print(','.join([str(i) for i in roll]))
 
             # For next version, check if ziltch here, if yes then break the round
             # Day 3
@@ -51,24 +64,20 @@ class Game:
             check_before_start = GameLogic.calculate_score(self,cheack_before)
             # print(check_before_start)
             # if the input is zero its a zilch
+
             if check_before_start == 0:
-                print("Zilch!!! Round over")
-                self.total += rounds_total
-                print(f"You banked {rounds_total} points in round {self.round}")
-                self.round += 1
-                num_dice = 6
-                print(f"Total score is {self.total} points")
-                self.round+=1
+                self.zilch(rounds_total)
                 break
-
-
-            unbanked_score=0
+            # unbanked_score=0
             # Check what user wants to do
             # First input trail
             more =input("Enter dice to keep (no spaces), or (q)uit: ")
-
+            if more == 'q' or more =='quit':
+                print(f"Total score is {self.total} points")
+                self.quit_game()
+                sys.exit()
             more=list(more)
-            input_checkk1=[int(something) for something in tuple(more)]
+            input_checkk1=[int(i) for i in tuple(more)]
             input_checkk=Counter(input_checkk1).most_common()
 
             roll_check=list(roll)
@@ -81,30 +90,23 @@ class Game:
                         break
                     else:
                         check_result=False
-
-            if check_result:
+            if not check_result:
+                self.cheater_or_typo(roll)
                 splitted_dice=[int(i) for i in more]
                 unbanked_score = GameLogic.calculate_score(self,(splitted_dice))
                 rounds_total += unbanked_score
                 num_dice -= len(splitted_dice)
 
-            elif more == 'q':
-                self.quit_game()
-            else:
-                print("Cheater!!! Or possibly made a typo...")
-                # roll = self.roller(num_dice)
-                print(','.join([str(i) for i in roll]))
-                more =input("Enter dice to keep (no spaces), or (q)uit: ")
-                splitted_dice=[str(i) for i in more]
+            elif check_result:
+                splitted_dice=[int(i) for i in more]
                 unbanked_score = GameLogic.calculate_score(self,(splitted_dice))
                 rounds_total += unbanked_score
                 num_dice -= len(splitted_dice)
-
-
-
-
-
-
+                # print(f"You have {rounds_total} unbanked points and {num_dice} dice remaining")
+                # what_next= input("(r)oll again, (b)ank your points or (q)uit ")
+            elif more == 'q':
+                self.quit_game()
+            # else:
 
             print(f"You have {rounds_total} unbanked points and {num_dice} dice remaining")
             # Second Input trail
@@ -118,9 +120,9 @@ class Game:
             if what_next=='b' or what_next=='bank':
                 self.total += rounds_total
                 print(f"You banked {rounds_total} points in round {self.round}")
+                print(f"Total score is {self.total} points")
                 self.round += 1
                 num_dice = 6
-                print(f"Total score is {self.total} points")
                 break
 
 
