@@ -1,5 +1,6 @@
 from collections import Counter
 import random
+# from abc import staticmethod
 
 class GameLogic():
     """
@@ -58,7 +59,8 @@ class GameLogic():
 
         return score
 
-    def roll_dice(self,n):
+    @staticmethod
+    def roll_dice(n):
         list = []
         for i in range(n):
             list.append(random.randint(1, n))
