@@ -17,4 +17,5 @@ Starting round 2
 Rolling 6 dice...
 3,2,3,2,1,4
 Enter dice to keep (no spaces), or (q)uit: q
+Total score is 2400 points
 Thanks for playing. You earned 2400 points
