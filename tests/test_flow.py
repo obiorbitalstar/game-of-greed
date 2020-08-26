@@ -13,3 +13,5 @@ def test_zilch():
 def test_cheat_and_fix():
     Flo.test("tests/flow/cheat_and_fix.txt")
 
+def test_hot_dice():
+    Flo.test("tests/flow/hot_dice.txt")
